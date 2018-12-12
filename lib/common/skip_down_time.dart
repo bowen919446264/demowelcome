@@ -40,7 +40,10 @@ class _DrawProgress extends CustomPainter {
     double startAngle = -math.pi / 2;
     double sweepAngle = math.pi * angle / 180;
     print("draw paint-------------------= $startAngle, $sweepAngle");
-    canvas.drawArc(rect, startAngle, sweepAngle, false, progressPaint);
+    //canvas.drawArc(rect, startAngle, sweepAngle, false, progressPaint);
+    Path path = new Path();
+    path.arcTo(rect, startAngle, sweepAngle, true);
+    canvas.drawPath(path, progressPaint);
   }
 
   @override
